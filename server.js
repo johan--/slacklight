@@ -15,7 +15,7 @@ var users = {
 
 server.connection({
   host: '0.0.0.0',
-  port: process.env.PORT || 3900
+  port: process.env.PORT || 4000
 });
 
 server.views({
@@ -48,7 +48,8 @@ var plugins = [
         }
       ]
     }
-  }
+  },
+  require('./lib/instagram')
 ]
 
 var internals = {
@@ -73,15 +74,27 @@ server.register(plugins
   if (err) {
     throw err;
   }
-
+// internals.authRoute(),
   server.route([
-     internals.authRoute({
-      method: 'GET',
-      path: '/',
-      handler: function (request, reply) {
-        reply.view('layout.html')
-      }
-    }),
+    {
+        method: 'GET',
+        path: '/',
+        config: {
+        tags: ['slacklight'],
+        description: "Root of slacklight",
+        pre: [
+          {
+            method: 'getInstagramPhotosForTag',
+            assign: 'photoss'
+          }
+        ]
+      },
+        handler: function (request, reply) {
+          consoe.log('PHOTOS: ', pre.photos);
+
+          reply.view('slacklight.html')
+        }
+    },
     {
         method: 'GET',
         path: '/{p*}',

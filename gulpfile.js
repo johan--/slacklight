@@ -6,7 +6,6 @@ var csso = require('gulp-csso');
 var rename = require('gulp-rename');
 
 function run(command) {
-  console.log('Exec: ', exec);
   var child = exec(command);
   child.stdout.pipe(process.stdout);
   child.stderr.pipe(process.stderr);
