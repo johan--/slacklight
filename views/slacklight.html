@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="image-grid">
+    <ul>
+    {% for photo in photos %}
+      <li>
+        <div>
+          <img src="{{photo.images}}">
+        </div>
+        <div>{{ photo.caption }}</div>
+        <div>{{ photo.created_time }}</div>
+        <div>{{ photo.tags }}</div>
+        <div>{{ photo.likes.count }}</div>
+        <div>
+          <ul>
+          {% for profile_picture in photo.profile_pictures %}
+            <li>
+              <img src="{{profile_picture}}" />
+            </li>
+          {% endfor %}
+        </div>
+        <div>{{ photo.user.username }}</div>
+        <div><img src="{{photo.user.profile_picture}}" /></div>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

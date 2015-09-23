@@ -77,33 +77,31 @@ server.register(plugins
 // internals.authRoute(),
   server.route([
     {
-        method: 'GET',
-        path: '/',
-        config: {
+      method: 'GET',
+      path: '/',
+      config: {
         tags: ['slacklight'],
         description: "Root of slacklight",
         pre: [
           {
             method: 'getInstagramPhotosForTag',
-            assign: 'photoss'
+            assign: 'photos'
           }
         ]
       },
-        handler: function (request, reply) {
-          consoe.log('PHOTOS: ', pre.photos);
-
-          reply.view('slacklight.html')
-        }
+      handler: function(request, reply) {
+        reply.view('slacklight.html', {photos: request.pre.photos})
+      }
     },
     {
-        method: 'GET',
-        path: '/{p*}',
-        handler: {
-          directory: {
-            path: 'public'
-          }
+      method: 'GET',
+      path: '/{p*}',
+      handler: {
+        directory: {
+          path: 'public'
         }
       }
+    }
   ]);
 
   server.start(function () {
