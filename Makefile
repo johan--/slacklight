@@ -20,11 +20,18 @@ build:
 build-production:
 	@npm run build-production
 
+bootstrap:
+	mkdir -p public/less/bootstrap
+	cp -r node_modules/bootstrap/less/* public/less/bootstrap
+
 test:
 	@npm test
 
 test-watch:
 	@npm run watchify-test
+
+watch-unit-test:
+	@npm run watch-unit-test
 
 shrinkwrap:
 	npm shrinkwrap --dev
