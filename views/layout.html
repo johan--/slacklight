@@ -21,9 +21,25 @@
         {% block content %}{% endblock %}
       </div>
       <div class="modal">
+        <div class="content">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="modal-navigator left"></div>
+              <div id="modal-image-wrapper">
+                <img class="modal-image" data="{{photo.id}}" src="{{photo.images}}">
+              </div>
+              <div class="modal-navigator right"></div>
+            </div>
+            <div class="col-xs-12">
+              <div id="post-title"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
+    <script>
+      window.__allPhotos = {{ JSON.stringify(allPhotos) }}
+    </script>
     {% if process.env.NODE_ENV === 'production' %}
       <script src="/js/slacklight.min.js"></script>
 

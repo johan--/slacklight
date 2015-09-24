@@ -1,5 +1,7 @@
+import _ from 'lodash';
 import request from 'superagent';
 import swig from 'swig';
+import PhotoStore from '../lib/stores/photo-store';
 
 window.slacklight = (() => {
   let init = () => {
@@ -26,16 +28,14 @@ window.slacklight = (() => {
   }
 
   let showLightbox = (e) => {
-    let lightbox = document.getElementById('lightbox');
-    lightbox.classList.toggle("invisible");
+    let lightbox = document.getElementsByClassName('modal')[0];
+    lightbox.classList.toggle("visible");
     let img = e.currentTarget
-    let imageId = menu.getAttribute('data');
-    let photo = PhotoStore.get(imageId);
+    let imageId = img.getAttribute('data');
+    let photo = _.find(window.__allPhotos, {id: imageId})
 
-    let lightboxContent = swig.renderFile('../views/lightbox.html', {photo: photo});
-
-
-    let content = document.getElementById(contentId);
+    let title = document.getElementById('post-title');
+    title.innerHTML = photo.caption;
   }
 
   window.addEventListener('load', init, false);

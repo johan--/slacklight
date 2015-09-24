@@ -22,6 +22,17 @@ describe('PhotoStore', function() {
       assert.deepEqual(result, input)
     })
   })
+  describe('get', function() {
+    beforeEach(function() {
+      PhotoStore.__set__("_photos", [{id: 1}])
+    })
+
+    it('returns all the photos in the store', function() {
+      let result = PhotoStore.get(1)
+
+      assert.deepEqual(result, {id: 1})
+    })
+  })
   describe('getAll', function() {
     beforeEach(function() {
       PhotoStore.__set__("_photos", [{id: 1}, {id: 2}])

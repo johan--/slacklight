@@ -4,6 +4,7 @@ var server = new Hapi.Server();
 var path = require('path');
 var config = require('config');
 var Basic = require('hapi-auth-basic');
+var PhotoStore = require('./lib/stores/photo-store');
 
 var users = {
   slacklight: {
@@ -91,7 +92,7 @@ server.register(plugins
       },
       handler: function(request, reply) {
         var photoRows = _.chunk(request.pre.photos, 3);
-        reply.view('slacklight.html', {photoRows: photoRows})
+        reply.view('slacklight.html', {allPhotos: PhotoStore.getAll(), photoRows: photoRows})
       }
     },
     {
