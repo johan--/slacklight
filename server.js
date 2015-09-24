@@ -15,7 +15,7 @@ var users = {
 
 server.connection({
   host: '0.0.0.0',
-  port: process.env.PORT || 4000
+  port: process.env.PORT || 5300
 });
 
 server.views({
@@ -90,7 +90,8 @@ server.register(plugins
         ]
       },
       handler: function(request, reply) {
-        reply.view('slacklight.html', {photos: request.pre.photos})
+        var photoRows = _.chunk(request.pre.photos, 3);
+        reply.view('slacklight.html', {photoRows: photoRows})
       }
     },
     {

@@ -1,28 +1,40 @@
 {% extends "layout.html" %}
 
 {% block content %}
-  <div class="image-grid">
+  <div class="image-grid col-xs-12">
     <ul>
-    {% for photo in photos %}
-      <li>
-        <div>
-          <img src="{{photo.images}}">
-        </div>
-        <div>{{ photo.caption }}</div>
-        <div>{{ photo.created_time }}</div>
-        <div>{{ photo.tags }}</div>
-        <div>{{ photo.likes.count }}</div>
-        <div>
-          <ul>
-          {% for profile_picture in photo.profile_pictures %}
-            <li>
-              <img src="{{profile_picture}}" />
-            </li>
-          {% endfor %}
-        </div>
-        <div>{{ photo.user.username }}</div>
-        <div><img src="{{photo.user.profile_picture}}" /></div>
-      </li>
+    {% for row in photoRows %}
+      <div class="row photo-row">
+        {% for photo in row %}
+          <li class="photo-cell col-xs-6 col-sm-4">
+            <div class="image-wrapper">
+              <img class="ig-image" data="{{photo.id}}" src="{{photo.images}}">
+              <div class="top-wrapper">
+                <div class="profile"><img src="{{photo.user.profile_picture}}" /></div>
+                <div class="username">{{ photo.user.username }}</div>
+                <div class="timestamp">{{ photo.created_time }}</div>
+              </div>
+              <div class="bottom-wrapper">
+                <div class="heart-icon"></div>
+                <div class="counter">{{ photo.likes.count }}</div>
+                <div data="{{photo.id}}" class="menu-icon"></div>
+                <div class="profiles">
+                  <ul>
+                  {% for profile_picture in photo.likes.profile_pictures %}
+                    <li>
+                      <img src="{{profile_picture}}" />
+                    </li>
+                  {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div id="{{photo.id}}" class="content-wrapper invisible">
+              <div class="caption">{{ photo.caption }}</div>
+            </div>
+          </li>
+        {% endfor %}
+      </div>
     {% endfor %}
     </ul>
   </div>

@@ -15,8 +15,13 @@
   </head>
   <body>
 
-    <div class="app container-fluid">
-      {% block content %}{% endblock %}
+    <div class="app container slacklight">
+      <div class="row">
+        <div class="logo"></div>
+        {% block content %}{% endblock %}
+      </div>
+      <div class="modal">
+      </div>
     </div>
 
     {% if process.env.NODE_ENV === 'production' %}
