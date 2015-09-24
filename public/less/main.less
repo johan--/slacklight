@@ -1,3 +1,4 @@
+@import "bootstrap/bootstrap";
 // Utils
 @import "utils/colors";
 @import "utils/font-weights";
@@ -9,10 +10,12 @@
 
 // Pages & Components
 @import "app";
-@import "pages/slacklight.less";
+@import "pages/slacklight";
 
 html, body {
   color: @slacklight-brand-primary;
   font-family: @slacklight-text-regular, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   -webkit-font-smoothing: antialiased;
+  height: 100%;
+  background-color: @slacklight-background;
 }

@@ -1,3 +1,155 @@
-.slacklight {
+.slacklight .image-grid ul {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    list-style: none;
+}
+.slacklight .image-grid li {
+  display: inline-block;
+}
+.slacklight .image-grid img {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.slacklight .image-grid .photo-row {
+  margin-bottom: 20px;
+}
+.slacklight .image-grid li.photo-cell {
+  margin-bottom: 20px;
+}
+.slacklight .image-wrapper {
+  position: relative;
+}
+.slacklight .image-wrapper .top-wrapper {
+  position: absolute;
+  top: 0;
+  height: 40px;
+  width: 100%;
+  background-color: white;
+}
+.slacklight .image-wrapper .top-wrapper .profile {
+  margin-left: 5px;
+  margin-top: 4px;
+  width: 30px;
+  height: 30px;
+}
+.slacklight .image-wrapper .top-wrapper .profile,
+.slacklight .image-wrapper .top-wrapper .username,
+.slacklight .image-wrapper .top-wrapper .timestamp {
+  display: inline-block
+}
+.slacklight .image-wrapper .top-wrapper .username,
+.slacklight .image-wrapper .top-wrapper .timestamp {
+  line-height: 38px;
+}
+.slacklight .image-wrapper .top-wrapper .timestamp {
+  float: right;
+  margin-right: 5px;
+  font-size: 11px;
+  color: @slacklight-grey-light;
+}
+.slacklight .content-wrapper .caption,
+.slacklight .image-wrapper .top-wrapper .username,
+.slacklight .image-wrapper .bottom-wrapper .counter {
+  color: @slacklight-brand-primary;
+  font-size: 12px;
+  font-weight: @fontWeight-6;
+}
+.slacklight .image-wrapper .top-wrapper .profile img {
+  border-radius: 15px;
+}
+.slacklight .image-wrapper .bottom-wrapper {
+  position: absolute;
+  height: 30px;
+  width: 100%;
+  background-color: white;
+}
+.slacklight .image-wrapper .bottom-wrapper .profiles {
+  float: right;
+  display: inline-block;
+  width: auto;
+  margin-right: 5px;
+}
+.slacklight .image-wrapper .bottom-wrapper .profiles ul {
+  padding: 0
+}
+.slacklight .image-wrapper .bottom-wrapper .profiles li {
+  margin: 0 5px;
+  display: inline;
+}
+.slacklight .image-wrapper .bottom-wrapper .profiles img {
+  border-radius: 15px;
+  width: 25px;
+  height: 25px;
+  margin-top: 3px;
+}
+.slacklight .image-wrapper .bottom-wrapper .heart-icon,
+.slacklight .image-wrapper .bottom-wrapper .counter,
+.slacklight .image-wrapper .bottom-wrapper .profiles,
+.slacklight .image-wrapper .bottom-wrapper .menu-icon {
+  display: inline-block;
+}
+.slacklight .image-wrapper .bottom-wrapper .counter {
+  position: absolute;
+  line-height: 30px;
+  margin-left: 5px;
+}
+.slacklight .image-wrapper .bottom-wrapper .menu-icon,
+.slacklight .image-wrapper .bottom-wrapper .heart-icon {
+  .transition(background-image 200ms ease);
 
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+.slacklight .image-wrapper .bottom-wrapper .heart-icon {
+  height: 20px;
+  width: 20px;
+  margin-top: 5px;
+  .backgroundImage('../../img/common/heart-icon.png', contain);
+  margin-left: 5px;
+
+  &:hover {
+    .backgroundImage('../../img/common/slack-heart-icon.png', contain);
+  }
+}
+.slacklight .image-wrapper .bottom-wrapper .menu-icon {
+  height: 30px;
+  width: 30px;
+  margin-top: 1px;
+  .backgroundImage('../../img/common/menu-icon.png', contain);
+  margin-right: 5px;
+  float: right;
+
+  &:hover {
+    cursor: pointer;
+    .backgroundImage('../../img/common/slack-menu-icon.png', contain);
+  }
+}
+.slacklight .content-wrapper {
+  display: block;
+  background-color: @slacklight-grey;
+}
+.slacklight .content-wrapper.invisible {
+  display: none;
+}
+.slacklight .content-wrapper .caption {
+  margin-top: 30px;
+  padding: 10px;
+}
+.slacklight .content-wrapper .tags-list li {
+  height: auto;
+}
+.slacklight .content-wrapper .tags-list li.tag {
+  background-color: white;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.slacklight .content-wrapper .tags-list .tag-icon {
+  .backgroundImage('../../img/common/tag-icon.png');
+  height: 20px;
+  width: 20px;
 }
