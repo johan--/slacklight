@@ -8,8 +8,9 @@ describe('Instagram', function() {
   describe('parseTags', function() {
     it('parses data payload to required photo scheme', function() {
       var target = [{
+        id: "1076473596329212724_17039749",
         caption: "caption title",
-        created_time: "September 17, 2015 8:07 PM",
+        created_time: "Sep 17th 2015",
         images: "https://standard_resolution.jpg",
         likes: {
           count: 2,
@@ -38,6 +39,7 @@ describe('Instagram', function() {
     describe('#grossAttrs', function() {
       it('extracts only the target attrs', function() {
         var target = {
+          'id': 'id',
           'created_time': 'created_time',
           'tags': 'tags',
           'likes': 'likes',
@@ -51,11 +53,18 @@ describe('Instagram', function() {
         assert.deepEqual(result, target)
       })
     })
+    describe('#id', function() {
+      it('returns the tag id', function() {
+        var result = Instagram.internals.id(TagFixture.id)
+        var target = "1076473596329212724_17039749";
+        assert.equal(result, target)
+      })
+    })
     describe('#created_time', function() {
       it('converts unix time to formatted time', function() {
         var input = "1442545674"
         var result = Instagram.internals.created_time(input)
-        var target = "September 17, 2015 8:07 PM";
+        var target = "Sep 17th 2015";
         assert.equal(result, target)
       })
     })
