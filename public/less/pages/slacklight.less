@@ -1,8 +1,8 @@
 .slacklight .image-grid ul {
-    width: 100%;
-    height: auto;
-    padding: 0;
-    list-style: none;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  list-style: none;
 }
 .slacklight .image-grid li {
   display: inline-block;
@@ -17,7 +17,15 @@
   margin-bottom: 20px;
 }
 .slacklight .image-grid li.photo-cell {
-  margin-bottom: 20px;
+  @media (max-width: @screen-xs-max) {
+    margin-bottom: 40px;
+  }
+  @media (min-width: @screen-sm-min) {
+    margin-bottom: 20px;
+  }
+  @media (min-width: @screen-lg-min) {
+    margin-bottom: 20px;
+  }
 }
 .slacklight .image-wrapper {
   position: relative;
@@ -65,7 +73,7 @@
 }
 .slacklight .image-wrapper .bottom-wrapper {
   position: absolute;
-  height: 30px;
+  height: auto;
   width: 100%;
   background-color: white;
 }
