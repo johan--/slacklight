@@ -5,6 +5,7 @@ var path = require('path');
 var config = require('config');
 var Basic = require('hapi-auth-basic');
 var PhotoStore = require('./lib/stores/photo-store');
+var http = require('http');
 
 var users = {
   slacklight: {
