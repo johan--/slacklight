@@ -1,5 +1,5 @@
 .slacklight .logo {
-  .backgroundImage('../../img/common/slacklight_logo.png', contain);
+  .backgroundImage('../../img/common/slacklight-logo.png', contain);
   position: relative;
   margin: 20px auto 10px;
   width: 40%;
@@ -8,14 +8,88 @@
 .slacklight .modal {
   background-color: @slacklight-modal;
 }
+.slacklight .modal #close-icon {
+  position: absolute;
+  z-index: @zIndex-1;
+  top: 10px;
+  right: 20px;
+  .backgroundImage('../../img/common/close-icon.png', contain);
+  width: 40px;
+  height: 40px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
 .slacklight .modal.visible {
   display: block;
 }
 .slacklight .modal .content {
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
   position: relative;
-  height: 630px;
-  background-color: white;
+  height: 720px;
+  background-color: @slacklight-white;
   top: 280px;
+  padding: 0 15px;
+  border-radius: 10px;
+}
+.slacklight .modal .media-wrapper,
+.slacklight .modal .title-wrapper {
+  position: absolute;
+  width: 100%;
+}
+.slacklight .modal .media-wrapper .prev-nav-image,
+.slacklight .modal .media-wrapper .next-nav-image {
+  .backgroundImage('../../img/common/slack-nav-neutral.png', contain);
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  .transition(all 300ms ease);
+}
+.slacklight .modal .media-wrapper .prev-nav-image {
+  left: 20px;
+
+  &:hover {
+    transform: scale(1.2);
+    .backgroundImage('../../img/common/slack-nav-prev.png', contain);
+  }
+}
+.slacklight .modal .media-wrapper .next-nav-image {
+  right: 20px;
+
+  &:hover {
+    transform: scale(1.2);
+    .backgroundImage('../../img/common/slack-nav-next.png', contain);
+  }
+}
+.slacklight .modal .modal-image-wrapper {
+  width: 75%;
+  max-width: 570px;
+  margin: 40px auto 0;
+  background-color: #e6e6e6;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.slacklight .modal .modal-image-wrapper img.modal-image {
+  width: 100%;
+  height: 100%;
+}
+.slacklight .modal .media-wrapper,
+.slacklight .modal .title-wrapper {
+  position: absolute;
+  width: 100%;
+}
+.slacklight .modal .modal-navigator.prev,
+.slacklight .modal .modal-navigator.next {
+  top: 260px;
+  position: relative;
+}
+.slacklight .modal .title-wrapper {
+  text-align: center;
+  bottom: 0;
+  font-size: 17px;
+  padding: 0 40px 20px;
 }

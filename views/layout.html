@@ -23,14 +23,19 @@
       <div class="modal">
         <div class="content">
           <div class="row">
-            <div class="col-xs-12">
-              <div class="modal-navigator left"></div>
-              <div id="modal-image-wrapper">
+            <div id="close-icon"></div>
+            <div class="media-wrapper">
+              <div class="modal-navigator prev">
+                <div class="prev-nav-image" data=""></div>
+              </div>
+              <div class="modal-navigator next">
+                <div class="next-nav-image" data=""></div>
+              </div>
+              <div class="modal-image-wrapper">
                 <img class="modal-image" data="{{photo.id}}" src="{{photo.images}}">
               </div>
-              <div class="modal-navigator right"></div>
             </div>
-            <div class="col-xs-12">
+            <div class="title-wrapper col-xs-12">
               <div id="post-title"></div>
             </div>
           </div>
