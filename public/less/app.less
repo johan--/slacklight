@@ -8,6 +8,8 @@
     height: 130px;
   }
   @media (min-width: @screen-sm-min) {
+    width: 70%;
+    height: 140px;
   }
   @media (min-width: @screen-lg-min) {
     width: 40%;
@@ -29,6 +31,8 @@
     height: 30px;
   }
   @media (min-width: @screen-sm-min) {
+    top: 10px;
+    right: 20px;
     width: 40px;
     height: 40px;
   }
@@ -65,7 +69,7 @@
   }
   @media (min-width: @screen-lg-min) {
     top: 280px;
-    width: 70%;
+    width: 55%;
     height: 720px;
   }
 }
@@ -87,6 +91,10 @@
     width: 60px;
     height: 60px;
   }
+  @media (min-width: @screen-sm-min) {
+    width: 75px;
+    height: 75px;
+  }
   cursor: pointer;
   .transition(all 300ms ease);
 }
@@ -98,7 +106,7 @@
     .backgroundImage('../../img/common/slack-nav-prev.png', contain);
   }
   @media (min-width: @screen-sm-min) {
-    left: 50px;
+    left: 120px;
     .backgroundImage('../../img/common/slack-nav-prev.png', contain);
   }
 
@@ -115,7 +123,7 @@
     .backgroundImage('../../img/common/slack-nav-next.png', contain);
   }
   @media (min-width: @screen-sm-min) {
-    right: 50px;
+    right: 120px;
     .backgroundImage('../../img/common/slack-nav-next.png', contain);
   }
 
@@ -136,7 +144,8 @@
     width: 97%;
   }
   @media (min-width: @screen-sm-min) {
-    width: 75%;
+    width: 95%;
+    margin-top: 70px;
   }
   @media (min-width: @screen-lg-min) {
     width: 75%;
@@ -158,7 +167,7 @@
     top: 380px;
   }
   @media (min-width: @screen-sm-min) {
-    top: 260px;
+    top: 700px;
   }
   @media (min-width: @screen-lg-min) {
     top: 260px;
@@ -175,5 +184,9 @@
     font-size: 12px;
     max-height: 105px;
     overflow: hidden;
+  }
+  @media (min-width: @screen-sm-min) {
+    font-size: 15px;
+    max-height: 165px;
   }
 }
