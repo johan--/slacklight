@@ -33,9 +33,4 @@ test-watch:
 watch-unit-test:
 	@npm run watch-unit-test
 
-shrinkwrap:
-	npm shrinkwrap --dev
-	git add npm-shrinkwrap.json package.json
-	git commit -m 'updating shrinkwrap' -e
-
 .PHONY: all install server test watch
