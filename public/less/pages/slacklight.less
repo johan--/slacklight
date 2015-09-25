@@ -28,7 +28,18 @@
   }
 }
 .slacklight .image-wrapper {
+  .backgroundImage('../../img/common/loading-icon.png', cover);
   position: relative;
+
+  @media (max-width: @screen-xs-max) {
+    min-height: 345px;
+  }
+  @media (min-width: @screen-sm-min) {
+    min-height: 720px;
+  }
+  @media (min-width: @screen-lg-min) {
+    min-height: 360px;
+  }
 }
 .slacklight .ig-image {
   cursor: pointer;
