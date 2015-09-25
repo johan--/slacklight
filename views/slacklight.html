@@ -17,7 +17,7 @@
               <div class="bottom-wrapper">
                 <div class="heart-icon"></div>
                 <div class="counter">{{ photo.likes.count }}</div>
-                <div data="{{photo.id}}" class="menu-icon"></div>
+                <button data="{{photo.id}}" class="menu-icon"></button>
                 <div class="profiles">
                   <ul>
                   {% for profile_picture in photo.likes.profile_pictures %}
