@@ -10,6 +10,7 @@ window.slacklight = (() => {
     addClickHandlersForClass("ig-image", showLightbox);
     addModalHideHandlers();
     addModalNavHandlers();
+    // addContentToggles();
   }
 
   let addModalNavHandlers = () => {

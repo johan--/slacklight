@@ -12,13 +12,17 @@
     {% else %}
       <link rel="stylesheet" href="/css/main.css">
     {% endif %}
+    <script>
+      window.__allPhotos = {{ JSON.stringify(allPhotos) }}
+      window.__category = 'slackhq';
+    </script>
   </head>
   <body>
 
     <div class="app container slacklight">
       <div class="row">
         <div class="logo"></div>
-        {% block content %}{% endblock %}
+        {% block content { locals: { category: 'slackhq' }} %}{% endblock %}
       </div>
       <div class="modal">
         <div class="content">
@@ -42,9 +46,6 @@
         </div>
       </div>
     </div>
-    <script>
-      window.__allPhotos = {{ JSON.stringify(allPhotos) }}
-    </script>
     {% if process.env.NODE_ENV === 'production' %}
       <script src="/js/slacklight.min.js"></script>
 

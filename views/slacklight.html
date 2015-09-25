@@ -3,7 +3,7 @@
 {% block content %}
   <div class="image-grid col-xs-12">
     <ul>
-    {% for row in photoRows %}
+    {% for row in photoCategories[category] %}
       <div class="row photo-row">
         {% for photo in row %}
           <li class="photo-cell col-xs-12 col-sm-12 col-lg-4">

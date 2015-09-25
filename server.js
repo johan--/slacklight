@@ -63,6 +63,25 @@ var internals = {
     }
 
     return route;
+  },
+  divideIntoTagCategories: function() {
+    var tags = PhotoStore.getTags();
+    var photos = PhotoStore.getAll();
+
+    return _.reduce(tags, function(memo, val) {
+      var photosForTag = _.chain(photos)
+                          .map(function(photo) {
+                            if (_.contains(photo.tags, val)) {
+                              return photo
+                            }
+                          })
+                          .compact()
+                          .value()
+
+      memo[val] = _.chunk(photosForTag, 3)
+
+      return memo
+    },{})
   }
 }
 
@@ -85,14 +104,20 @@ server.register(plugins
         description: "Root of slacklight",
         pre: [
           {
-            method: 'getInstagramPhotosForTag',
+            method: 'getInstagramPhotosForTags',
             assign: 'photos'
           }
         ]
       },
       handler: function(request, reply) {
         var photoRows = _.chunk(request.pre.photos, 3);
-        reply.view('slacklight.html', {allPhotos: PhotoStore.getAll(), photoRows: photoRows})
+        var photoCategories = internals.divideIntoTagCategories();
+        console.log('CATGEORIES: ', photoCategories);
+        reply.view('slacklight.html', {
+          allPhotos: PhotoStore.getAll(),
+          photoRows: photoRows,
+          photoCategories: photoCategories
+        })
       }
     },
     {
