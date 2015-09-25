@@ -11,11 +11,12 @@ window.slacklight = (() => {
     addModalHideHandlers();
     addModalNavHandlers();
   }
+
   let addModalNavHandlers = () => {
-    let prev = document.getElementsByClassName('prev-nav-image')[0];
-    let next = document.getElementsByClassName('next-nav-image')[0];
-    prev.addEventListener('click', changeContent, false);
-    next.addEventListener('click', changeContent, false);
+    ['prev', 'next'].forEach((dir) => {
+      let el = document.getElementById(`${dir}-nav-image`);
+      el.addEventListener('click', changeContent, false);
+    })
   }
 
   let changeContent = (e) => {
@@ -73,11 +74,12 @@ window.slacklight = (() => {
   }
 
   let setNavIndexes = (index) => {
-    let prevNav = document.getElementsByClassName('prev-nav-image')[0];
-    let nextNav = document.getElementsByClassName('next-nav-image')[0];
     let indexPair = Slacklight.indexPairs(window.__allPhotos, index);
-    prevNav.setAttribute('data', indexPair.prev)
-    nextNav.setAttribute('data', indexPair.next)
+
+    ['prev', 'next'].forEach((dir) => {
+      let el = document.getElementById(`${dir}-nav-image`);
+      el.setAttribute('data', indexPair[dir])
+    })
   }
 
   let showLightbox = (e) => {
