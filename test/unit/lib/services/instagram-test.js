@@ -1,8 +1,14 @@
 import {assert} from 'chai';
-import Instagram from '../../../../lib/services/instagram.js';
+import rewire from "rewire";
+let Instagram = rewire('../../../../lib/services/instagram.js');
 import TagsFixture from '../../../fixtures/instagram/tags-fixture.json'
 import TagFixture from '../../../fixtures/instagram/tag-fixture.json'
 import _ from 'lodash'
+
+// Control the timezone
+let moment = require('moment-timezone');
+moment.tz.setDefault("UTC");
+Instagram.__set__('moment', moment);
 
 describe('Instagram', function() {
   describe('parseTags', function() {
@@ -10,7 +16,7 @@ describe('Instagram', function() {
       var target = [{
         id: "1076473596329212724_17039749",
         caption: "caption title",
-        created_time: "Sep 17th 2015",
+        created_time: "Sep 18th 2015",
         images: "https://standard_resolution.jpg",
         likes: {
           count: 2,
@@ -64,7 +70,7 @@ describe('Instagram', function() {
       it('converts unix time to formatted time', function() {
         var input = "1442545674"
         var result = Instagram.internals.created_time(input)
-        var target = "Sep 17th 2015";
+        var target = "Sep 18th 2015";
         assert.equal(result, target)
       })
     })
