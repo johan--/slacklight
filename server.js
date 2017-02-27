@@ -7,14 +7,6 @@ var Basic = require('hapi-auth-basic');
 var PhotoStore = require('./lib/stores/photo-store');
 var http = require('http');
 
-var users = {
-  slacklight: {
-    username: 'slacklight',
-    password: 'belessbusy',
-    name: 'slacklight'
-  }
-};
-
 server.connection({
   host: '0.0.0.0',
   port: process.env.PORT || 5300
@@ -30,13 +22,6 @@ server.views({
     isPretty: true
   }
 });
-
-if (process.env.NODE_ENV === 'production') {
-  // Prevent Sleeping Dynos
-  setInterval(function() {
-      http.get("http://slacklight.herokuapp.com");
-  }, 60000); // every minute
-}
 
 var plugins = [
   {
